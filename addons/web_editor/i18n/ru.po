@@ -653,7 +653,7 @@ msgstr "Дублировать элемент"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Dynamic color"
-msgstr ""
+msgstr "Динамический цвет"
 
 #. module: web_editor
 #: code:addons/web_editor/controllers/main.py:0
@@ -677,7 +677,7 @@ msgstr "Редактировать"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Edit image"
-msgstr ""
+msgstr "Редактировать изображение"
 
 #. module: web_editor
 #. openerp-web

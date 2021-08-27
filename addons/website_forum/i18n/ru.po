@@ -2350,7 +2350,7 @@ msgstr "Нет тегов"
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.user_votes
 msgid "No vote given by you yet!"
-msgstr ""
+msgstr "Вы еще не проголосовали!"
 
 #. module: website_forum
 #: model:ir.model.fields,field_description:website_forum.field_forum_forum__karma_dofollow

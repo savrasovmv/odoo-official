@@ -1341,13 +1341,13 @@ msgstr "Категория"
 #. module: website_slides
 #: model:slide.channel.tag,name:website_slides.slide_channel_tag_other_1
 msgid "Certification"
-msgstr ""
+msgstr "Сертификация"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_res_config_settings__module_website_slides_survey
 #: model_terms:ir.ui.view,arch_db:website_slides.courses_all
 msgid "Certifications"
-msgstr "Опросы/Certifications"
+msgstr "Сертификация"
 
 #. module: website_slides
 #: model:gamification.badge,name:website_slides.badge_data_certification
@@ -2870,7 +2870,7 @@ msgstr ""
 #. module: website_slides
 #: model:slide.channel.tag,name:website_slides.slide_channel_tag_level_intermediate
 msgid "Intermediate"
-msgstr ""
+msgstr "Промежуточный"
 
 #. module: website_slides
 #: code:addons/website_slides/controllers/main.py:0
@@ -2903,7 +2903,7 @@ msgstr "Приглашение"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_partner__completed
 msgid "Is Completed"
-msgstr ""
+msgstr "Завершено"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__message_is_follower
@@ -4617,6 +4617,9 @@ msgid ""
 "you want.</br>A <b>Preview</b> of your file is available on the right side "
 "of the screen."
 msgstr ""
+"<b>Название</b> вашего урока заполняется автоматически, но вы можете изменить его, если"
+"хотите.</br> <b>Предварительный просмотр</b> вашего файла доступен справа"
+"экрана."
 
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_slide__is_preview

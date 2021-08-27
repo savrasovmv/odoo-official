@@ -100,7 +100,7 @@
 
                     <!-- Page Edition -->
                     <li class="o_new_content_menu" id="new-content-menu">
-                        <a href="#" accesskey="c"><span class="fa fa-plus mr-2"/>New</a>
+                        <a href="#" accesskey="c"><span class="fa fa-plus mr-2"/>Новый</a>
                         <div id="o_new_content_menu_choices" class="o_hidden">
                             <div class="container pt32 pb32">
                                 <div class="row">
@@ -169,7 +169,7 @@
                                             <a href="#" data-action="new_slide_channel">
                                                 <i class="fa module_icon" style="background-image: url('/website/static/src/img/apps_thumbs/website_slide.svg');
                                                     background-repeat: no-repeat; background-position: center;"/>
-                                                <p>Course</p>
+                                                <p>Курс</p>
                                             </a>
                                         </div>
                                         <t t-set="mod" t-value="env.ref('base.module_website_livechat')"/>
@@ -188,7 +188,7 @@
                         </div>
                     </li>
                     <li t-if="not translatable" id="edit-page-menu">
-                        <a data-action="edit" href="#" accesskey="a"><span class="fa fa-pencil mr-2"/>Edit</a>
+                        <a data-action="edit" href="#" accesskey="a"><span class="fa fa-pencil mr-2"/>Изменить</a>
                     </li>
                     <li t-if="edit_in_backend or ('website_published' in main_object.fields_get() and main_object._name != 'website.page')">
                         <a role="button" class="btn btn-primary btn-sm dropdown-toggle css_edit_dynamic" data-toggle="dropdown">

@@ -1006,6 +1006,9 @@ msgid ""
 "                    <span class=\"css_publish\">Unpublished</span>\n"
 "                    <span class=\"css_unpublish\">Published</span>"
 msgstr ""
+"<span/>\n"
+"                    <span class=\"css_publish\">Не опубликовано</span>\n"
+"                    <span class=\"css_unpublish\">Опубликовано</span>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -5415,12 +5418,12 @@ msgstr "НЕ индексированный"
 #: model_terms:ir.ui.view,arch_db:website.one_page_line
 #: model_terms:ir.ui.view,arch_db:website.website_pages_view_search
 msgid "Not published"
-msgstr ""
+msgstr "Не опубликовано"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_pages_view_search
 msgid "Not tracked"
-msgstr ""
+msgstr "Не отслеживается"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -5439,7 +5442,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
 msgid "Nothing"
-msgstr ""
+msgstr "Ничего такого"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_res_config_settings__website_language_count
@@ -5449,7 +5452,7 @@ msgstr "количество языков"
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_visitor__visit_count
 msgid "Number of visits"
-msgstr ""
+msgstr "Количество посещений"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.show_website_info
@@ -6016,7 +6019,7 @@ msgstr "Опубликовано"
 #: code:addons/website/static/src/js/content/website_root.js:0
 #, python-format
 msgid "Published with success."
-msgstr ""
+msgstr "Успешно опубликовано."
 
 #. module: website
 #. openerp-web
@@ -6029,12 +6032,12 @@ msgstr "Дата публикации"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
 msgid "Purpose"
-msgstr ""
+msgstr "Цель"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_text_highlight
 msgid "Put the focus on what you have to say!"
-msgstr ""
+msgstr "Сосредоточьтесь на том, что вы хотите сказать!"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_rating
@@ -6059,7 +6062,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_image_gallery_options
 msgid "Re-order"
-msgstr ""
+msgstr "Изменение порядка"
 
 #. module: website
 #: model:ir.model,name:website.model_ir_rule
@@ -6083,7 +6086,7 @@ msgstr "Перенаправить старую URL-адрес"
 #: code:addons/website/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "Redirect to URL in a new tab"
-msgstr ""
+msgstr "Перенаправить на URL в новой вкладке"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.view_rewrite_search
@@ -6098,7 +6101,7 @@ msgstr "перенаправления"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.view_website_rewrite_form
 msgid "Refresh route's list"
-msgstr ""
+msgstr "Обновить список маршрутов"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_tabs_options
@@ -7724,7 +7727,7 @@ msgstr "Неограниченные настройки"
 #: code:addons/website/static/src/js/backend/button.js:0
 #, python-format
 msgid "Unpublish"
-msgstr "Unpublish"
+msgstr "Отменить публикацию"
 
 #. module: website
 #. openerp-web
@@ -7734,7 +7737,7 @@ msgstr "Unpublish"
 #: model_terms:ir.ui.view,arch_db:website.publish_short
 #, python-format
 msgid "Unpublished"
-msgstr "Неопубликованный"
+msgstr "Не опубликованный"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.theme_view_kanban
@@ -7761,7 +7764,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_visitor_page_view_search
 msgid "Urls & Pages"
-msgstr ""
+msgstr "Ссылки & Страницы"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form

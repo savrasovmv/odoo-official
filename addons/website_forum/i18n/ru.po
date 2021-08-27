@@ -242,7 +242,6 @@ msgid ""
 msgstr ""
 "<b class=\"d-block\">У вас есть публикация в ожидании</b>\n"
 "                        Подождите, пока модератор подтвердит ваше предыдущее пост, чтобы ему было разрешено отвечать на вопросы."
-msgstr ""
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.moderation_display_post_answer

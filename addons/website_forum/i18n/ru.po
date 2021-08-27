@@ -1130,6 +1130,8 @@ msgid ""
 "Click here to send a verification email allowing you to participate in the "
 "forum."
 msgstr ""
+"Нажмите здесь, чтобы отправить письмо с подтверждением, позволяющее вам принять участие в мероприятии "
+"участие в форуме."
 
 #. module: website_forum
 #. openerp-web

@@ -152,7 +152,7 @@ class WebsiteBlog(http.Controller):
         '''/blog/<model("blog.blog"):blog>/page/<int:page>''',
         '''/blog/<model("blog.blog"):blog>/tag/<string:tag>''',
         '''/blog/<model("blog.blog"):blog>/tag/<string:tag>/page/<int:page>''',
-    ], type='http', auth="public", website=True, sitemap=True)
+    ], type='http', auth="user", website=True, sitemap=True)
     def blog(self, blog=None, tag=None, page=1, search=None, **opt):
         Blog = request.env['blog.blog']
         if blog and not blog.can_access_from_current_website():
@@ -199,14 +199,14 @@ class WebsiteBlog(http.Controller):
 
     @http.route([
         '''/blog/<model("blog.blog"):blog>/post/<model("blog.post", "[('blog_id','=',blog.id)]"):blog_post>''',
-    ], type='http', auth="public", website=True, sitemap=False)
+    ], type='http', auth="user", website=True, sitemap=False)
     def old_blog_post(self, blog, blog_post, tag_id=None, page=1, enable_editor=None, **post):
         # Compatibility pre-v14
         return request.redirect(_build_url_w_params("/blog/%s/%s" % (slug(blog), slug(blog_post)), request.params), code=301)
 
     @http.route([
         '''/blog/<model("blog.blog"):blog>/<model("blog.post", "[('blog_id','=',blog.id)]"):blog_post>''',
-    ], type='http', auth="public", website=True, sitemap=True)
+    ], type='http', auth="user", website=True, sitemap=True)
     def blog_post(self, blog, blog_post, tag_id=None, page=1, enable_editor=None, **post):
         """ Prepare all values to display the blog.
 
@@ -305,7 +305,7 @@ class WebsiteBlog(http.Controller):
         new_blog_post = request.env['blog.post'].with_context(mail_create_nosubscribe=True).browse(int(blog_post_id)).copy()
         return werkzeug.utils.redirect("/blog/%s/%s?enable_editor=1" % (slug(new_blog_post.blog_id), slug(new_blog_post)))
 
-    @http.route(['/blog/render_latest_posts'], type='json', auth='public', website=True)
+    @http.route(['/blog/render_latest_posts'], type='json', auth='user', website=True)
     def render_latest_posts(self, template, domain, limit=None, order='published_date desc'):
         dom = expression.AND([
             [('website_published', '=', True), ('post_date', '<=', fields.Datetime.now())],

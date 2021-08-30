@@ -67,7 +67,13 @@ class QueryURL(object):
 
 class Website(Home):
 
-    @http.route('/', type='http', auth="public", website=True, sitemap=True)
+    # Перенаправляем на регистрацию
+    @http.route('/', type='http', auth="public", website=True)
+    def index1(self, **kw):
+        if not request.uid:
+            return http.local_redirect('/web/login', query=request.params, keep_hash=True)
+
+    @http.route('/', type='http', auth="user", website=True, sitemap=True)
     def index(self, **kw):
         # prefetch all menus (it will prefetch website.page too)
         top_menu = request.website.menu_id
@@ -129,9 +135,10 @@ class Website(Home):
         """
         if not redirect and request.params.get('login_success'):
             if request.env['res.users'].browse(uid).has_group('base.group_user'):
-                redirect = b'/web?' + request.httprequest.query_string
+                redirect = b'/'
+                # redirect = b'/web?' + request.httprequest.query_string
             else:
-                redirect = '/my'
+                redirect = '/'
         return super()._login_redirect(uid, redirect=redirect)
 
     # Force website=True + auth='public', required for login form layout

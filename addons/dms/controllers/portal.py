@@ -79,7 +79,7 @@ class CustomerPortal(CustomerPortal):
     @http.route(
         ["/my/dms/directory/<int:dms_directory_id>"],
         type="http",
-        auth="users",
+        auth="user",
         website=True,
     )
     def portal_my_dms_directory(

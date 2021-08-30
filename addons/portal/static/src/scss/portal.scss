@@ -316,7 +316,8 @@ img, .media_iframe_video, .o_image {
         }
 
         @if ($o-portal-use-default-colors) {
-            background-color: white!important;
+            background-color: rgba(theme-color('primary'), 0.8) !important;
+            // background-color: #0C4383!important;
         }
     }
 

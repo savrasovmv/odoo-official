@@ -294,7 +294,7 @@ class WebsiteSlides(WebsiteProfile):
     # SLIDE.CHANNEL MAIN / SEARCH
     # --------------------------------------------------
 
-    @http.route('/slides', type='http', auth="users", website=True, sitemap=True)
+    @http.route('/slides', type='http', auth="user", website=True, sitemap=True)
     def slides_channel_home(self, **post):
         """ Home page for eLearning platform. Is mainly a container page, does not allow search / filter. """
         domain = request.website.website_domain()
@@ -341,7 +341,7 @@ class WebsiteSlides(WebsiteProfile):
 
         return request.render('website_slides.courses_home', values)
 
-    @http.route('/slides/all', type='http', auth="users", website=True, sitemap=True)
+    @http.route('/slides/all', type='http', auth="user", website=True, sitemap=True)
     def slides_channel_all(self, slide_type=None, my=False, **post):
         """ Home page displaying a list of courses displayed according to some
         criterion and search terms.
@@ -400,7 +400,7 @@ class WebsiteSlides(WebsiteProfile):
         '/slides/<model("slide.channel"):channel>/tag/<model("slide.tag"):tag>/page/<int:page>',
         '/slides/<model("slide.channel"):channel>/category/<model("slide.slide"):category>',
         '/slides/<model("slide.channel"):channel>/category/<model("slide.slide"):category>/page/<int:page>',
-    ], type='http', auth="users", website=True, sitemap=sitemap_slide)
+    ], type='http', auth="user", website=True, sitemap=sitemap_slide)
     def channel(self, channel, category=None, tag=None, page=1, slide_type=None, uncategorized=False, sorting=None, search=None, **kw):
         """
         Will return all necessary data to display the requested slide_channel along with a possible category.
@@ -666,7 +666,7 @@ class WebsiteSlides(WebsiteProfile):
     # SLIDE.SLIDE MAIN / SEARCH
     # --------------------------------------------------
 
-    @http.route('''/slides/slide/<model("slide.slide"):slide>''', type='http', auth="users", website=True, sitemap=True)
+    @http.route('''/slides/slide/<model("slide.slide"):slide>''', type='http', auth="user", website=True, sitemap=True)
     def slide_view(self, slide, **kwargs):
         if not slide.channel_id.can_access_from_current_website() or not slide.active:
             raise werkzeug.exceptions.NotFound()
@@ -699,14 +699,14 @@ class WebsiteSlides(WebsiteProfile):
         return request.render("website_slides.slide_main", values)
 
     @http.route('''/slides/slide/<model("slide.slide"):slide>/pdf_content''',
-                type='http', auth="users", website=True, sitemap=False)
+                type='http', auth="user", website=True, sitemap=False)
     def slide_get_pdf_content(self, slide):
         response = werkzeug.wrappers.Response()
         response.data = slide.datas and base64.b64decode(slide.datas) or b''
         response.mimetype = 'application/pdf'
         return response
 
-    @http.route('/slides/slide/<int:slide_id>/get_image', type='http', auth="users", website=True, sitemap=False)
+    @http.route('/slides/slide/<int:slide_id>/get_image', type='http', auth="user", website=True, sitemap=False)
     def slide_get_image(self, slide_id, field='image_128', width=0, height=0, crop=False):
         # Protect infographics by limiting access to 256px (large) images
         if field not in ('image_128', 'image_256', 'image_512', 'image_1024', 'image_1920'):
@@ -740,7 +740,7 @@ class WebsiteSlides(WebsiteProfile):
     # SLIDE.SLIDE UTILS
     # --------------------------------------------------
 
-    @http.route('/slides/slide/get_html_content', type="json", auth="users", website=True)
+    @http.route('/slides/slide/get_html_content', type="json", auth="user", website=True)
     def get_html_content(self, slide_id):
         fetch_res = self._fetch_slide(slide_id)
         if fetch_res.get('error'):
@@ -757,7 +757,7 @@ class WebsiteSlides(WebsiteProfile):
             next_slide = self._fetch_slide(next_slide_id).get('slide', None)
         return werkzeug.utils.redirect("/slides/slide/%s" % (slug(next_slide) if next_slide else slug(slide)))
 
-    @http.route('/slides/slide/set_completed', website=True, type="json", auth="users")
+    @http.route('/slides/slide/set_completed', website=True, type="json", auth="user")
     def slide_set_completed(self, slide_id):
         if request.website.is_public_user():
             return {'error': 'public_user'}
@@ -769,7 +769,7 @@ class WebsiteSlides(WebsiteProfile):
             'channel_completion': fetch_res['slide'].channel_id.completion
         }
 
-    @http.route('/slides/slide/like', type='json', auth="users", website=True)
+    @http.route('/slides/slide/like', type='json', auth="user", website=True)
     def slide_like(self, slide_id, upvote):
         if request.website.is_public_user():
             return {'error': 'public_user', 'error_signup_allowed': request.env['res.users'].sudo()._get_signup_invitation_scope() == 'b2c'}
@@ -887,7 +887,7 @@ class WebsiteSlides(WebsiteProfile):
             'question': slide_question,
         })
 
-    @http.route('/slides/slide/quiz/get', type="json", auth="users", website=True)
+    @http.route('/slides/slide/quiz/get', type="json", auth="user", website=True)
     def slide_quiz_get(self, slide_id):
         fetch_res = self._fetch_slide(slide_id)
         if fetch_res.get('error'):
@@ -905,7 +905,7 @@ class WebsiteSlides(WebsiteProfile):
             ('partner_id', '=', request.env.user.partner_id.id)
         ]).write({'completed': False, 'quiz_attempts_count': 0})
 
-    @http.route('/slides/slide/quiz/submit', type="json", auth="users", website=True)
+    @http.route('/slides/slide/quiz/submit', type="json", auth="user", website=True)
     def slide_quiz_submit(self, slide_id, answer_ids):
         if request.website.is_public_user():
             return {'error': 'public_user'}

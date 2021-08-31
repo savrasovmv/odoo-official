@@ -7,7 +7,7 @@
     >
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <t t-if="dms_directory_count" t-call="portal.portal_docs_entry">
-                <t t-set="title">Documents</t>
+                <t t-set="title">Документы</t>
                 <t t-set="url" t-value="'/my/dms'" />
                 <t t-set="count" t-value="dms_directory_count" />
             </t>
@@ -23,10 +23,10 @@
                 <t t-if="not access_token">
                     <li class="breadcrumb-item">
                         <t t-if="dms_directory">
-                            <a href="/my/dms" title="DMS">Documents</a>
+                            <a href="/my/dms" title="DMS">Документы</a>
                         </t>
                         <t t-if="not dms_directory">
-                            <span>Documents</span>
+                            <span>Документы</span>
                         </t>
                     </li>
                 </t>
@@ -53,14 +53,14 @@
             <t t-set="breadcrumbs_searchbar" t-value="True" />
             <t t-call="portal.portal_searchbar" />
             <t t-if="not dms_directories and not dms_files">
-                <div class="alert alert-warning mt8" role="alert">Not results</div>
+                <div class="alert alert-warning mt8" role="alert">Нет результата</div>
             </t>
             <t t-if="dms_directories or dms_files" t-call="portal.portal_table">
                 <thead>
                     <tr class="active">
-                        <th>Name</th>
-                        <th>Size</th>
-                        <th>Last update</th>
+                        <th>Имя</th>
+                        <th>Размер</th>
+                        <th>Изменен</th>
                     </tr>
                 </thead>
                 <tbody>

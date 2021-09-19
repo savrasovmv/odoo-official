@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<odoo><data>
+
+<!-- Slide template for the fullscreen mode -->
+<template id="file_preview" name="file_preview">
+    
+    <t t-call="website.layout">
+        <div class="o_dms_main d-flex flex-column font-weight-light">
+        <!-- <div style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999; background:#404040">
+            <div>
+            <button > Закрыть </button>
+            </div>
+            <div>
+            <object data="http://test.fineapple.xyz:8069/my/dms/file/1/pdf_content" style="width:100%; height:100%;">
+                Ваш браузер не поддерживает плавающие фреймы!
+            </object>
+            </div> 
+        </div>-->
+            <div class="o_dms_head">
+                <a class="d-flex align-items-center px-3" t-attf-href="/my/dms/directory/#{dms_directory_id}">
+                        <i class="fa fa-home"></i><span class="d-none d-md-inline-block ml-1">Назад к документам</span>
+                    </a>
+            </div>
+
+            <object t-attf-data="/my/dms/file/#{dms_file_id}/pdf_content" t-attf-type="#{dms_file_type}">
+>
+                Ваш браузер не поддерживает открытие данного формата!
+            </object>
+        </div>
+
+    </t>
+</template>
+
+
+
+
+</data></odoo>

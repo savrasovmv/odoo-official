@@ -31,6 +31,7 @@
         "views/dms_access_groups_views.xml",
         "views/res_config_settings.xml",
         "views/dms_portal_templates.xml",
+        "views/website_file_preview_templates.xml",
     ],
     "qweb": ["static/src/xml/views.xml"],
     "demo": [

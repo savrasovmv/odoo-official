@@ -589,3 +589,11 @@ $o-wslides-fs-side-width: 300px;
 .oe_show_footer {
     z-index: $MAX-Z-INDEX; // Looks terrible but seems necessary due to fullscreen & canvas in PDFSlidesViewer
 }
+
+// Цвет ссылок в навигационной панели
+// добавлен т.к панель жестко назначена белым цветом
+.o_wslides_home_nav {
+    .nav-link {
+        color: rgba(24, 23, 23, 0.75)!important;
+    }
+}

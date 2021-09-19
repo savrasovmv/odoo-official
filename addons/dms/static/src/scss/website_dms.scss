@@ -1,0 +1,45 @@
+
+.o_dms_main {
+
+    position: absolute;
+    top:0; 
+    left:0; 
+    bottom:0; 
+    right:0; 
+    z-index: 1031;
+    background:#404040;
+    flex-direction: column !important;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    box-sizing: border-box;
+
+    .o_dms_head {
+        height: 50px;
+        color: #FFFFFF !important;
+        flex-shrink: 0 !important;
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: flex !important;
+        box-sizing: border-box;
+    }
+    
+    object {
+        position: relative !important;
+        overflow: hidden !important;
+        flex-grow: 1 !important;
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: flex !important;
+        box-sizing: border-box;
+        // width:100%;
+        // max-width:100%;
+        object-fit: contain;
+
+    }
+
+    a {
+        color: #FFFFFF !important;
+    }
+}
+

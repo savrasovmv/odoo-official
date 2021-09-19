@@ -41,4 +41,14 @@
             />
         </xpath>
     </template>
+
+
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="DMS Frontend Assets">
+            <xpath expr="//link[last()]" position="after">
+                <link rel="stylesheet" type="text/scss" href="/dms/static/src/scss/website_dms.scss" t-ignore="true"/>
+               
+            </xpath>
+         
+        </template>
 </odoo>

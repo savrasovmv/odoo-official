@@ -1,5 +1,6 @@
 # Copyright 2020-2021 Tecnativa - Víctor Martínez
 import base64
+import werkzeug
 
 from odoo import _, http
 from odoo.http import request
@@ -166,6 +167,7 @@ class CustomerPortal(CustomerPortal):
             "dms_directory": dms_directory_sudo,
             "dms_files": dms_file_items,
             "dms_parent_categories": dms_parent_categories,
+            "dms_directory_id": dms_directory_id,
         }
         return request.render("dms.portal_my_dms", values)
 
@@ -199,3 +201,41 @@ class CustomerPortal(CustomerPortal):
             content_disposition(dms_file_sudo.name),
         ]
         return request.make_response(filecontent, [content_type, disposition_content])
+
+
+
+    @http.route("/my/dms/directory/<int:dms_directory_id>/file/<int:dms_file_id>",
+                type='http', auth="user", website=True, sitemap=False)
+    def file_get(self, dms_directory_id, dms_file_id, access_token=None, **kw):
+        values = {
+            "dms_directory_id": dms_directory_id,
+            "dms_file_id": dms_file_id,
+            
+        }
+        return request.render("dms.file_preview", values)
+
+
+    @http.route("/my/dms/file/<int:dms_file_id>/pdf_content",
+                type='http', auth="user", website=True, sitemap=False)
+    def file_get_pdf_content(self, dms_file_id, access_token=None, **kw):
+        ensure_db()
+        # operations
+        res = self._dms_check_access("dms.file", dms_file_id, access_token)
+        if not res:
+            if access_token:
+                return request.redirect("/")
+            else:
+                return request.redirect("/my")
+
+        dms_file_sudo = res
+        # It's necessary to prevent AccessError in ir_attachment .check() function
+        if dms_file_sudo.attachment_id and request.env.user.has_group(
+            "base.group_portal"
+        ):
+            dms_file_sudo = dms_file_sudo.sudo()
+        filecontent = base64.b64decode(dms_file_sudo.content)
+
+        response = werkzeug.wrappers.Response()
+        response.data = filecontent or b''
+        response.mimetype = dms_file_sudo.mimetype
+        return response

@@ -104,7 +104,8 @@ publicWidget.registry.websiteSlidesCourseSlidesList = publicWidget.Widget.extend
         this.$(".o_wslides_js_slides_list_slide_link").each(function (){
             var href = $(this).attr('href');
             var operator = href.indexOf('?') !== -1 ? '&' : '?';
-            $(this).attr('href', href + operator + "fullscreen=1");
+            $(this).attr('href', href + operator + "fullscreen=0"); 
+            // Savrasov/ Установил fullscreen=0 для отоброжения по умолчанию в не полноэкранный режим
         });
     }
 });

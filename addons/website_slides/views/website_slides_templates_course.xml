@@ -14,7 +14,7 @@
                         </li>
                         <t t-set="breadcrumb_class" t-value="'breadcrumb-item %s' % ('active' if not slide else '')" />
                         <li t-att-class="'breadcrumb-item %s' % ('active' if not search_category and not search_tag and not search_slide_type and not slide else '')">
-                            <a t-att-href="'/slides/%s' % slug(channel)"><span t-esc="channel.name"/></a>
+                            <a t-att-href="'/slides/%s' % slug(channel)" t-att-title="channel.name"><span t-esc="channel.name[:23] + '...' if channel.name and len(channel.name) &gt; 25 else channel.name"/></a>
                         </li>
                         <li t-att-class="breadcrumb_class" t-att-aria-current="'page' and search_category" t-if="search_category">
                             <a t-att-href="'/slides/%s/category/%s' % (slug(channel), slug(search_category))"><span t-esc="search_category.name"/></a>
@@ -29,7 +29,7 @@
                             <a t-att-href="'/slides/%s?slide_type=%s' % (slug(channel), search_slide_type)"><span t-esc="slide_types[search_slide_type]"/></a>
                         </li>
                         <li t-if="slide" class="breadcrumb-item active">
-                            <a t-att-href="'/slides/slide/%s' % slug(slide)"><span t-esc="slide.name"/></a>
+                            <a t-att-href="'/slides/slide/%s' % slug(slide)" t-att-title="slide.name"><span t-esc="slide.name[:23] + '...' if slide.name and len(slide.name) &gt; 25 else slide.name"/></a>
                         </li>
                     </ol>
                 </nav>
@@ -409,7 +409,9 @@
                                 t-att-data-category-id="category_id"
                                 t-att-data-can-upload="channel.can_upload"
                                 t-att-data-can-publish="channel.can_publish">
-                                <i class="fa fa-plus mr-1"/> <span class="d-none d-md-inline-block">Add Content</span>
+                                <div class="column d-flex align-items-center">
+                                    <i class="fa fa-plus mr-1"/> <span class="d-none d-md-inline-block">Добавить</span>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -538,17 +540,17 @@
                 <span class="badge badge-light badge-hide border font-weight-normal px-2 py-1 m-1">Add Quiz</span>
             </a>
             <a t-if="channel.can_upload" href="#">
-                <span t-att-data-slide-id="slide.id" t-attf-class="o_wslides_js_slide_toggle_is_preview badge #{'badge-success' if slide.is_preview else 'badge-light badge-hide border'} font-weight-normal px-2 py-1 m-1"><span>Preview</span></span>
+                <span t-att-data-slide-id="slide.id" t-attf-class="o_wslides_js_slide_toggle_is_preview badge #{'badge-success' if slide.is_preview else 'badge-light badge-hide border'} font-weight-normal px-2 py-1 m-1"><span>Предпросмотр</span></span>
             </a>
             <t t-elif="slide.is_preview and not channel.is_member">
-                <span class="badge badge-success font-weight-normal px-2 py-1 m-1"><span>Preview</span></span>
+                <span class="badge badge-success font-weight-normal px-2 py-1 m-1"><span>Предпросмотр</span></span>
             </t>
             <span t-if="slide.is_new_slide and not channel_progress[slide.id].get('completed')" class="badge badge-info badge-arrow-right font-weight-normal px-2 py-1 m-1">
                 New
             </span>
             <span t-if="slide.question_ids" t-att-class="'badge font-weight-bold px-2 py-1 m-1 %s' % ('badge-success' if channel_progress[slide.id].get('completed') else 'badge-warning')">
                 <i t-attf-class="fa fa-fw #{'fa-check' if channel_progress[slide.id].get('completed') else 'fa-flag'}"/>
-                <t t-esc="channel_progress[slide.id].get('quiz_karma_won', 0) if channel_progress[slide.id].get('completed') else channel_progress[slide.id].get('quiz_karma_gain', 0)"/> xp
+                <t t-esc="channel_progress[slide.id].get('quiz_karma_won', 0) if channel_progress[slide.id].get('completed') else channel_progress[slide.id].get('quiz_karma_gain', 0)"/> очков
             </span>
             <span class="badge badge-danger font-weight-normal px-2 py-1 m-1" t-if="not slide.website_published">Unpublished</span>
         </div>
@@ -796,7 +798,7 @@
             <span t-else="" class="card-title h5 mb-2 o_wslides_desc_truncate_2 text-muted" t-esc="slide.name"/>
             <div class="card-subtitle mb-2 text-muted" t-if="slide.is_preview or (not slide.is_published and user.has_group('website_slides.group_website_slides_officer'))">
                 <t t-if="slide.is_preview">
-                    <span class="badge badge-info">Preview</span>
+                    <span class="badge badge-info">Предпросмотр</span>
                 </t>
                 <t t-if="not slide.is_published and channel.can_publish">
                     <span class="badge badge-danger">Unpublished</span>

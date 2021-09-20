@@ -13,12 +13,12 @@
                 <div class="container o_wslides_lesson_header_container mt-5 mt-md-3 mt-xl-4">
                     <div class="row align-items-end align-items-md-stretch">
                         <div t-attf-class="col-12 col-lg-9 d-flex flex-column #{'offset-lg-3' if slide.channel_id.channel_type == 'training' else ''}">
-                            <h2 class="font-weight-medium w-100">
+                            <h3 class="font-weight-medium w-100">
                                 <a t-att-href="'/slides/%s' % (slug(slide.channel_id))" class="text-white text-decoration-none" t-field="slide.channel_id.name"/>
                                 <t t-if="slide.channel_id.completed">
                                     <small><span class="badge badge-pill badge-success pull-right my-1 py-1 px-2 font-weight-normal"><i class="fa fa-check"/> Completed</span></small>
                                 </t>
-                            </h2>
+                            </h3>
 
                             <div t-if="slide.channel_id.channel_type == 'documentation'" class="mb-3 small">
                                 <span class="font-weight-normal">Last update:</span>
@@ -205,7 +205,7 @@
 <!-- Slide: all its content, not fullscreen mode -->
 <template id="slide_content_detailed" name="Slide: Detailed Content">
     <t t-set="is_training_channel" t-value="slide.channel_id.channel_type == 'training'"/>
-    <div class="row align-items-center my-3">
+    <div class="column align-items-center my-3">
         <div class="col-12 col-md order-2 order-md-1 d-flex">
             <div class="d-flex align-items-center">
                 <h1 class="h4 my-0">
@@ -225,29 +225,33 @@
                 </span>
             </div>
         </div>
-        <div class="col-12 col-md order-1 order-md-2 text-nowrap flex-grow-0 d-flex justify-content-end mb-3 mb-md-0">
-            <div class="btn-group flex-grow-1 flex-sm-0" role="group" aria-label="Lesson Nav">
-                <a t-att-class="'btn btn-light border %s' % ('disabled' if not previous_slide else '')"
-                    role="button" t-att-aria-disabled="'disabled' if not previous_slide else None"
-                    t-att-href="'/slides/slide/%s' % (slug(previous_slide)) if previous_slide else '#'">
-                    <i class="fa fa-chevron-left mr-2"></i> <span class="d-none d-sm-inline-block">Prev</span>
-                </a>
-                <t t-set="allow_done_btn" t-value="slide.slide_type in ['infographic', 'presentation', 'document', 'webpage', 'video'] and not slide.question_ids and not channel_progress[slide.id].get('completed') and slide.channel_id.is_member"/>
-                <a t-att-class="'btn btn-primary border text-white %s' % ('disabled' if not allow_done_btn else '')"
-                    role="button" t-att-aria-disabled="'true' if not allow_done_btn else None"
-                    t-att-href="'/slides/slide/%s/set_completed?%s' % (slide.id, 'next_slide_id=%s' % (next_slide.id) if next_slide else '') if allow_done_btn else '#'">
-                    Set Done
-                </a>
-                <a t-att-class="'btn btn-light border %s' % ('disabled' if not next_slide else '')"
-                    role="button" t-att-aria-disabled="'disabled' if not next_slide else None"
-                    t-att-href="'/slides/slide/%s' % (slug(next_slide)) if next_slide else '#'">
-                    <span class="d-none d-sm-inline-block">Next</span> <i class="fa fa-chevron-right ml-2"></i>
+        <div class="row align-items-center my-3">
+            <div class="col-12 col-md order-2 order-md-1 d-flex">
+            </div>
+            <div class="col-12 col-md order-1 order-md-2 text-nowrap flex-grow-0 d-flex justify-content-end mb-3 mb-md-0">
+                <div class="btn-group flex-grow-1 flex-sm-0" role="group" aria-label="Lesson Nav">
+                    <a t-att-class="'btn btn-light border %s' % ('disabled' if not previous_slide else '')"
+                        role="button" t-att-aria-disabled="'disabled' if not previous_slide else None"
+                        t-att-href="'/slides/slide/%s' % (slug(previous_slide)) if previous_slide else '#'">
+                        <i class="fa fa-chevron-left mr-2"></i> <span class="d-none d-sm-inline-block">Prev</span>
+                    </a>
+                    <t t-set="allow_done_btn" t-value="slide.slide_type in ['infographic', 'presentation', 'document', 'webpage', 'video'] and not slide.question_ids and not channel_progress[slide.id].get('completed') and slide.channel_id.is_member"/>
+                    <a t-att-class="'btn btn-primary border text-white %s' % ('disabled' if not allow_done_btn else '')"
+                        role="button" t-att-aria-disabled="'true' if not allow_done_btn else None"
+                        t-att-href="'/slides/slide/%s/set_completed?%s' % (slide.id, 'next_slide_id=%s' % (next_slide.id) if next_slide else '') if allow_done_btn else '#'">
+                        Set Done
+                    </a>
+                    <a t-att-class="'btn btn-light border %s' % ('disabled' if not next_slide else '')"
+                        role="button" t-att-aria-disabled="'disabled' if not next_slide else None"
+                        t-att-href="'/slides/slide/%s' % (slug(next_slide)) if next_slide else '#'">
+                        <span class="d-none d-sm-inline-block">Next</span> <i class="fa fa-chevron-right ml-2"></i>
+                    </a>
+                </div>
+                <a t-if="is_training_channel" class="btn btn-light border ml-2" role="button" t-att-href="'/slides/slide/%s?fullscreen=1' % (slug(slide))">
+                    <i class="fa fa-desktop mr-2"/>
+                    <span class="d-none d-sm-inline-block">Fullscreen</span>
                 </a>
             </div>
-            <a t-if="is_training_channel" class="btn btn-light border ml-2" role="button" t-att-href="'/slides/slide/%s?fullscreen=1' % (slug(slide))">
-                <i class="fa fa-desktop mr-2"/>
-                <span class="d-none d-sm-inline-block">Fullscreen</span>
-            </a>
         </div>
     </div>
     <div t-if="slide.tag_ids" class="pb-2">

@@ -152,7 +152,7 @@ according to the enabled options.
 <template id="post_heading">
     <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
        t-field="blog_post.name"
-       t-attf-class="d-block text-reset text-decoration-none o_blog_post_title my-0 #{'h3' if opt_blog_list_view else ('h5' if opt_blog_readable else 'h6')}">
+       t-attf-class="d-block text-decoration-none o_blog_post_title my-0 #{'h3' if opt_blog_list_view else ('h5' if opt_blog_readable else 'h6')}">
        Untitled Post
    </a>
 

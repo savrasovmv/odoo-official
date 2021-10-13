@@ -186,7 +186,8 @@
                     <h1 t-else="" class="display-3 mb-0">All Courses</h1>
                 </div>
             </section>
-            <div class="container position-relative">
+            <!-- Savrasov убрал отступ панели -->
+            <div class="container position-relative p-0">
                 <!-- Navbar dynamically composed using displayed channel tag groups. -->
                 <nav class="navbar navbar-expand-md navbar-light shadow-sm pl-0" >
                     <div class="navbar-nav border-right">
@@ -194,7 +195,7 @@
                     </div>
                     <!-- Clear filtering (mobile)-->
                     <div class="form-inline text-nowrap ml-auto d-md-none" t-if="search_slide_type or search_my or search_tags or search_channel_tag_id">
-                        <a href="/slides/all" class="btn btn-info mr-2" role="button" title="Clear filters">
+                        <a href="/slides/all" class="btn btn-link text-white mr-2" role="button" title="Clear filters">
                             <i class="fa fa-eraser"/> Clear filters
                         </a>
                     </div>
@@ -242,7 +243,7 @@
                         </ul>
                         <!-- Clear filtering (desktop)-->
                         <div class="form-inline ml-auto d-none d-md-flex" t-if="search_slide_type or search_my or search_tags or search_channel_tag_id">
-                            <a href="/slides/all" class="btn btn-info text-nowrap mr-2" role="button" title="Clear filters">
+                            <a href="/slides/all" class="btn btn-link text-white text-nowrap mr-2" role="button" title="Clear filters">
                                 <i class="fa fa-eraser"/> Clear filters
                             </a>
                         </div>
@@ -272,27 +273,30 @@
                     </t>
                 </div>
                 <!-- Display tags -->
-                <t t-if="search_my">
-                      <span class="align-items-baseline border d-inline-flex pl-2 rounded mb-2">
-                      <i class="fa fa-tag mr-2 text-muted"/>
-                      My Courses
-                      <a t-att-href="'/slides/all?%s' % keep_query('*', my=None)" class="btn border-0 py-1">&#215;</a>
-                    </span>
-                </t>
-                <t t-if="search_term">
-                      <span class="align-items-baseline border d-inline-flex pl-2 rounded mb-2">
-                      <i class="fa fa-tag mr-2 text-muted"/>
-                      <t t-esc="search_term"/>
-                      <a t-att-href="'/slides/all?%s' % keep_query('*', search=None)" class="btn border-0 py-1">&#215;</a>
-                    </span>
-                </t>
-                <t t-foreach="search_tags" t-as="tag">
-                    <span class="align-items-baseline border d-inline-flex pl-2 rounded mb-2">
+                <!-- Savrasov отступ блока тегов -->
+                <div class="pl-3">
+                    <t t-if="search_my">
+                        <span class="align-items-baseline border d-inline-flex pl-2 rounded mb-2">
                         <i class="fa fa-tag mr-2 text-muted"/>
-                        <t t-esc="tag.display_name"/>
-                        <a t-att-href="'/slides/all?%s' % keep_query('*', tags=str((search_tags - tag).ids))" class="btn border-0 py-1">&#215;</a>
-                    </span>
-                </t>
+                        My Courses
+                        <a t-att-href="'/slides/all?%s' % keep_query('*', my=None)" class="btn border-0 py-1">&#215;</a>
+                        </span>
+                    </t>
+                    <t t-if="search_term">
+                        <span class="align-items-baseline border d-inline-flex pl-2 rounded mb-2">
+                        <i class="fa fa-tag mr-2 text-muted"/>
+                        <t t-esc="search_term"/>
+                        <a t-att-href="'/slides/all?%s' % keep_query('*', search=None)" class="btn border-0 py-1">&#215;</a>
+                        </span>
+                    </t>
+                    <t t-foreach="search_tags" t-as="tag">
+                        <span class="align-items-baseline border d-inline-flex pl-2 rounded mb-2">
+                            <i class="fa fa-tag mr-2 text-muted"/>
+                            <t t-esc="tag.display_name"/>
+                            <a t-att-href="'/slides/all?%s' % keep_query('*', tags=str((search_tags - tag).ids))" class="btn border-0 py-1">&#215;</a>
+                        </span>
+                    </t>
+                </div>
             </div>
             <div class="container o_wslides_home_main pb-5">
                 <div t-if="not channels and not search_term and not search_slide_type and not search_my and not search_tags and not search_channel_tag_id">

@@ -179,7 +179,9 @@
     <t t-set="body_classname" t-value="'o_wslides_body'"/>
     <t t-call="website.layout">
         <div id="wrap" class="wrap o_wslides_wrap">
-            <section class="s_banner bg-900" style="background-image: url(&quot;/website_slides/static/src/img/banner_default_all.svg&quot;); background-size: cover; background-position: 80% 20%" data-snippet="s_banner">
+            <!-- Savrasov изменена картинка по умолчанию -->
+            <!-- <section class="s_banner bg-900" style="background-image: url(&quot;/website_slides/static/src/img/banner_default_all.svg&quot;); background-size: cover; background-position: 80% 20%" data-snippet="s_banner"> -->
+            <section class="s_banner bg-900" style="background-image: url(&quot;/website_slides/static/src/img/slides.jpg&quot;); background-size: cover; background-position: 80% 20%" data-snippet="s_banner">
                 <div class="container py-5">
                     <h1 t-if="search_my" class="display-3 mb-0">My Courses</h1>
                     <h1 t-elif="search_slide_type=='certification'" class="display-3 mb-0">Сертификации</h1>

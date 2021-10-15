@@ -407,12 +407,12 @@ msgstr ""
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.tag
 msgid "<em class=\"d-block mb-2\">or</em>"
-msgstr ""
+msgstr "<em class=\"d-block mb-2\">или</em>"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
 msgid "<i class=\" fa fa-comment text-muted mr-1\"/>Comment"
-msgstr ""
+msgstr "<i class=\" fa fa-comment text-muted mr-1\"/>Комментарий"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
@@ -483,12 +483,12 @@ msgstr "<i class=\"fa fa-flag\"/> Страна"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_answers
-msgid ""
-"<i class=\"fa fa-pencil\"/>\n"
-"                                Edit<span class=\"d-none d-lg-inline\"> your answer</span>"
-msgstr ""
-"<i class=\"fa fa-pencil\"/>\n"
-"                                Edit<span class=\"d-none d-lg-inline\"> Ваш ответ</span>"
+#msgid ""
+#"<i class=\"fa fa-pencil\"/>\n"
+#"                                Edit<span class=\"d-none d-lg-inline\"> your answer</span>"
+#msgstr ""
+#"<i class=\"fa fa-pencil\"/>\n"
+#"                                Изменить<span class=\"d-none d-lg-inline\"> Ваш ответ</span>"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
@@ -642,11 +642,14 @@ msgid ""
 "                            Best Answer\n"
 "                        </span>"
 msgstr ""
+"<span class=\"o_wforum_answer_correct_badge border small border-success rounded-pill font-weight-bold text-success ml-2 px-2\">\n"
+"                            Лучший ответ\n"
+"                        </span>"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.close_post
 msgid "<span class=\"text-muted mx-3\">or</span>"
-msgstr ""
+msgstr "<span class=\"text-muted mx-3\">или</span>"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.moderation_queue
@@ -2136,7 +2139,7 @@ msgstr "Основное вложение"
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_answers
 msgid "Mark as Best Answer"
-msgstr ""
+msgstr "Отметить как лучший ответ"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.close_post
@@ -2454,7 +2457,7 @@ msgstr "В среднем,"
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_answers
 msgid "Only one answer per question is allowed"
-msgstr ""
+msgstr "Разрешен только один ответ на вопрос"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.view_forum_forum_form
@@ -3089,6 +3092,8 @@ msgid ""
 "Sorry, we could not find any <b>%s</b> result <b>\n"
 "                        %s</b> %s%s%s."
 msgstr ""
+"К сожалению, мы не смогли найти ни одного <b>%s</b> результата <b>\n"
+"                        %s</b> %s%s%s."
 
 #. module: website_forum
 #. openerp-web

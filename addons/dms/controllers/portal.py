@@ -53,18 +53,26 @@ class CustomerPortal(CustomerPortal):
             )
         ]
         # search
+        file_items = []
         if search and search_in:
             search_domain = []
             if search_in == "name":
                 search_domain = OR([search_domain, [("name", "ilike", search)]])
             domain += search_domain
+            file_items = request.env["dms.file"].search([("name", "ilike", search)], order=sort_br)
         # content according to pager and archive selected
         items = request.env["dms.directory"].search(domain, order=sort_br)
+        
         request.session["my_dms_folder_history"] = items.ids
+        print("+++++++", search)
+        print("+++++++", search_in)
+        print("+++++++", domain)
+        print("+++++++", items)
         # values
         values.update(
             {
                 "dms_directories": items,
+                "dms_files": file_items,
                 "page_name": "dms_directory",
                 "default_url": "/my/dms",
                 "searchbar_sortings": searchbar_sortings,

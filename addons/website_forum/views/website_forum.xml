@@ -52,24 +52,44 @@
     <t t-if="forum.active" t-call="website_forum.layout">
         <section t-attf-class="s_cover parallax s_parallax_is_fixed py-3 #{forum.image_1920 and 'bg-black-50' or 'o_wforum_forum_card_bg text-white'}" data-scroll-background-ratio="1" data-snippet="s_cover">
             <span t-if="forum.image_1920" class="s_parallax_bg oe_img_bg" t-attf-style="background-image: url('#{website.image_url(forum, 'image_1920')}'); background-position: center;"/>
-            <div t-if="forum.image_1920" class="o_we_bg_filter bg-black-50"/>
-            <div class="container">
-                <div class="row s_nb_column_fixed">
+            <!-- <div t-if="forum.image_1920" class="o_we_bg_filter bg-black-50"/> -->
+            <div t-if="forum.image_1920" />
+            <div class="container align-items-center d-flex mb-3 mt-lg-3 pt-lg-3 pb-lg-3">
+
+                <div class="row ml-3">
+                    <div>
+                        <h1 class="display-3 mb-0">
+                        <font class="text-o-color-4" style="">
+                            <b><t t-esc="forum.name"></t></b>
+                        </font>
+                        </h1>
+                        
+                        <div class="row mt-1 mb-3">
+                        <div class="col o_colored_level">
+                            <div t-field="forum.description"/>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="row s_nb_column_fixed">
                     <div class="col-lg-12">
-                        <h1 class="o_default_snippet_text text-center"><t t-esc="forum.name"></t></h1>
+                        <h1 class="text-o-color-4"><b><t t-esc="forum.name"></t></b></h1>
                     </div>
                 </div>
                 <div t-if="editable or (is_public_user and not forum_welcome_message)" t-att-class="'css_non_editable_mode_hidden' if editable else 'forum_intro'">
-                    <div t-field="forum.welcome_message"/>
-                </div>
+                    <div class="text-o-color-4" t-field="forum.welcome_message"/>
+                </div> -->
             </div>
         </section>
 
-        <div class="o_forum_nav_header_container mb-2 mb-md-4">
+        <div class="o_forum_nav_header_container mb-0 mb-md-0">
             <t t-call="website_forum.forum_nav_header"></t>
         </div>
 
-        <div id="wrap" t-attf-class="container #{website_forum_action}">
+        <div id="wrap" t-attf-class="container pt-3 #{website_forum_action}">
             <div class="row">
                 <div class="col o_wprofile_email_validation_container mb16">
                     <t t-call="website_profile.email_validation_banner">
@@ -175,8 +195,8 @@
                         <t t-elif="searches.get('tags')">Tags</t>
                         <t t-elif="searches.get('badges')">Badges</t>
                         <t t-elif="header.get('is_guidelines')">About</t>
-                        <t t-elif="uid and my == 'favourites'">Favourites</t>
-                        <t t-elif="uid and my == 'mine'">My Posts</t>
+                        <t t-elif="uid and my == 'favourites'">Избранное</t>
+                        <t t-elif="uid and my == 'mine'">Мои посты</t>
                         <t t-elif="uid and my == 'followed'">Following</t>
                         <t t-elif="question">Question</t>
                         <t t-else="">All Topics</t>
@@ -191,10 +211,10 @@
                             <div class="dropdown-divider"/>
                             <a t-att-href="'/forum/%s/user/%s?forum_origin=%s' % (slug(forum), uid, request.httprequest.path)"
                                 class="dropdown-item">My profile</a>
-                            <a t-if="my != 'mine'" t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'filters', my='mine')" class="dropdown-item">My Posts</a>
-                            <a t-if="my != 'favourites'" t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'filters', my='favourites')" class="dropdown-item">My Favourites</a>
-                            <a t-if="my != 'followed'" t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'filters', my='followed')" class="dropdown-item">I'm Following</a>
-                            <a t-if="my != 'tagged'" t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'filters', my='tagged')" class="dropdown-item">Tags I Follow</a>
+                            <a t-if="my != 'mine'" t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'filters', my='mine')" class="dropdown-item">Мои посты</a>
+                            <a t-if="my != 'favourites'" t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'filters', my='favourites')" class="dropdown-item">Мои избранные</a>
+                            <a t-if="my != 'followed'" t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'filters', my='followed')" class="dropdown-item">Подписка на посты</a>
+                            <a t-if="my != 'tagged'" t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'filters', my='tagged')" class="dropdown-item">Подписки на теги</a>
                         </t>
                         <div groups="base.group_erp_manager" class="dropdown-divider"/>
                         <a groups="base.group_erp_manager" t-attf-href="/web#id=#{forum.id}&amp;view_type=form&amp;model=forum.forum" class="dropdown-item">Edit Forum in Backend</a>
@@ -581,11 +601,11 @@
 
         <!-- My Favourites -->
         <span t-if="my == 'favourites'" class="nav-link rounded-pill mb-2 active font-weight-bold">
-            <i class="fa fa-star fa-fw"/> Favourites
+            <i class="fa fa-star fa-fw"/> Избранное
             <a class="text-reset pull-right no-decoration" t-att-href="location + keep_query( 'search', 'filters', 'sorting')">&#215;</a>
         </span>
         <a t-else="" t-attf-class="nav-link rounded-pill mb-2 text-reset" t-att-href="location + keep_query( 'search', 'filters', 'sorting', my='favourites')">
-            <i class="fa fa-star fa-fw"/> Favourites
+            <i class="fa fa-star fa-fw"/> Избранное
         </a>
 
         <!-- My Followed posts -->
@@ -646,7 +666,7 @@
                     <span t-if="my" t-attf-class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between #{search and 'ml-md-2'}">
                         <div>
                             <img t-if="uid" class="o_forum_avatar rounded-circle mr-1" t-att-src="website.image_url(user, 'image_128', '16x16')" alt="Avatar"/>
-                            <span t-if="my == 'favourites'"> My <b>Favourites</b></span>
+                            <span t-if="my == 'favourites'"> Мои <b>Избранные</b></span>
                             <span t-elif="my == 'followed'"> I'm <b>Following</b></span>
                             <span t-elif="my == 'mine'"> My <b>Posts</b></span>
                             <span t-elif="my == 'tagged'"> <b>Tags</b> I Follow</span>
@@ -785,14 +805,14 @@
 
                 <t t-elif="not tag and not search and no_filters">
                     <div t-if="my == 'followed'" class="alert border">
-                        You're not following any topic in this forum (yet).<br/>
+                        Вы пока не подписаны ни на одну тему этого форума<br/>
                         <a t-attf-href="/forum/#{slug(forum)}/">Browse All</a>
                     </div>
                     <div t-elif="my == 'favourites'" class="alert border">
-                        No favourite questions in this forum (yet).<br/>
+                        В этом форуме пока нет любимых вопросо.<br/>
                         <a t-attf-href="/forum/#{slug(forum)}/">Browse All</a>
                     </div>
-                    <div t-elif="my == 'mine'" class="alert border">You have no posts in this forum (yet).</div>
+                    <div t-elif="my == 'mine'" class="alert border">У вас пока нет сообщений в этом форуме.</div>
                 </t>
 
                 <div t-elif="filters == 'unanswered'" class="alert alert-info">Amazing! There are no unanswered questions left!</div>
@@ -841,26 +861,26 @@
                 <label for="content">Title</label>
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                 <input type="text" name="post_name" required="required" pattern=".*\S.*" t-attf-value="#{post_name}"
-                    class="form-control form-control-lg" placeholder="A clear, explicit and concise title" title="Title must not be empty"/>
+                    class="form-control form-control-lg" placeholder="Четкое, ясное и лаконичное название" title="Заголовок не должен быть пустым"/>
                 <input type="hidden" name="karma" t-attf-value="#{user.karma}" id="karma"/>
                 <div class="form-text small text-muted">
                     <a data-toggle="collapse" href="#newQuestionExample" role="button" aria-expanded="false" aria-controls="newQuestionExample">
-                        Example
+                        Пример
                         <i class="fa fa-question-circle"/>
                     </a>
                     <div class="collapse" id="newQuestionExample">
                         <div class="text-success mt-2">
-                            <i class="fa fa-check"/> How to configure TPS and TVQ's canadian taxes?
+                            <i class="fa fa-check"/> Как настроить почту в Outlook?
                         </div>
                         <div class="text-danger">
-                            <i class="fa fa-times"/> Good morning to all! Please, can someone help solve my tax computation problem in Canada? Thanks!
+                            <i class="fa fa-times"/> Доброе утро всем! Пожалуйста, кто-нибудь может помочь мне решить мою проблему с подключение почты в Outlook? Спасибо!
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="content">Description</label>
-                <div class="small form-text text-muted d-inline">, consider <b>adding an example</b>. </div>
+                <div class="small form-text text-muted d-inline">, посмотрите <b>в примере</b>. </div>
                 <textarea name="content" required="required" id="content" class="form-control o_wysiwyg_loader" t-att-data-karma="forum.karma_editor">
                     <t t-esc="question_content"/>
                 </textarea>
@@ -1008,10 +1028,10 @@
         <input type="hidden" name="karma" t-attf-value="#{user.karma}" id="karma"/>
         <textarea name="content" t-attf-id="content-#{str(question.id)}" class="form-control o_wysiwyg_loader" required="required" minlength="50" t-att-data-karma="forum.karma_editor"/>
         <p class="small mt-2 mb-1">
-            <b>Please try to give a substantial answer.</b> If you wanted to comment on the question or answer, just
-            <b>use the commenting tool.</b> Please remember that you can always <b>revise your answers</b>
-            - no need to answer the same question twice. Also, please <b>don't forget to vote</b>
-            - it really helps to select the best questions and answers!
+            <b>Пожалуйста, постарайтесь дать содержательный ответ.</b> Если вы хотите прокомментировать вопрос или ответ, просто используйте 
+            <b>инструмент комментирования.</b> Пожалуйста, помните, что вы всегда можете <b> пересмотреть свои ответы</b>
+            - не нужно дважды отвечать на один и тот же вопрос. Также, пожалуйста, <b> не забудьте проголосовать</b>
+            - действительно помогает выбрать лучшие вопросы и ответы!
         </p>
         <button type="submit" t-attf-class="btn btn-primary o_wforum_submit_post #{forum.allow_share and 'oe_social_share_call'} my-3 #{not question.can_answer and 'karma_required'}"
                 t-att-data-karma="question.forum_id.karma_answer"
@@ -1171,10 +1191,10 @@
                             t-attf-href="##{_question_comment_collapse_uid}">
                             <i class=" fa fa-comment text-muted mr-1"/>Comment
                         </a>
-                        <a href="javascript:void(0)" class="oe_social_share btn px-2 border"
+                        <!-- <a href="javascript:void(0)" class="oe_social_share btn px-2 border"
                             t-attf-data-hashtags="#question">
                             <i class="fa fa-share-alt text-muted mr-1"/>Share
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
@@ -1339,7 +1359,7 @@
                                 data-toggle="tooltip"
                                 t-attf-href="/forum/#{slug(forum)}/question/#{slug(question)}/edit_answer">
                                 <i class="fa fa-pencil"/>
-                                Edit<span class="d-none d-lg-inline"> your answer</span>
+                                Изменить<span class="d-none d-lg-inline"> your answer</span>
                             </a>
                         </div>
                         <div class="btn-group btn-group-sm">
@@ -1350,12 +1370,12 @@
                                 <i t-attf-class="fa fa-comment text-muted #{not answer.can_comment and 'karma_required'}"/>
                                 Comment
                             </a>
-                            <a href="javascript:void(0)" class="oe_social_share btn border px-2"
+                            <!-- <a href="javascript:void(0)" class="oe_social_share btn border px-2"
                                 t-attf-data-urlshare="#{request.httprequest.url}##{_answer_comment_collapse_uid}"
                                 t-attf-data-hashtags="question">
                                 <i class="fa fa-share-alt text-muted"/>
                                 Share
-                            </a>
+                            </a> -->
                         </div>
                         <div t-if="answer.can_comment" class="btn-group btn-group-sm ml-1 ml-md-2">
                             <a class="btn border dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

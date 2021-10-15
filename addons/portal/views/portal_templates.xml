@@ -86,7 +86,7 @@
     </template>
 
     <template id="portal_breadcrumbs" name="Portal Breadcrumbs">
-        <ol t-if="page_name != 'home'" class="o_portal_submenu breadcrumb mb-0 py-2 flex-grow-1 row">
+        <ol t-if="page_name != 'home'" class="o_portal_submenu breadcrumb mb-0 py-2 flex-grow-1 row pl-3">
             <li class="breadcrumb-item ml-1"><a href="/my/home" aria-label="Home" title="Home"><i class="fa fa-home"/></a></li>
             <li t-if="page_name == 'my_details'" class="breadcrumb-item">Details</li>
         </ol>
@@ -115,8 +115,8 @@
                     </div>
                 </div>
             </div>
-            <div id="wrap" class='o_portal_wrap'>
-                <div class="container mb64">
+            <div id="wrap" class='o_portal_wrap h-100'>
+                <div class="container mb64 p-0">
                     <t t-if="my_details">
                         <div class="row justify-content-between mt-4">
                             <div t-attf-class="col-12 col-md col-lg-6">
@@ -185,8 +185,8 @@
     </template>
 
     <template id="portal_table" name="My Portal Table">
-        <div t-attf-class="table-responsive border rounded border-top-0 #{classes if classes else ''}">
-            <table class="table rounded mb-0 bg-white o_portal_my_doc_table">
+        <div t-attf-class="table-responsive p-3 #{classes if classes else ''}">
+            <table class="table border mb-0 bg-white o_portal_my_doc_table">
                 <t t-raw="0"/>
             </table>
         </div>
@@ -231,7 +231,7 @@
         :param classes : navbar classes
     -->
     <template id="portal_searchbar" name="Portal Search Bar">
-        <nav t-attf-class="navbar navbar-light navbar-expand-lg border py-0 mb-2 o_portal_navbar {{classes if classes else ''}} {{'mt-3 rounded' if breadcrumbs_searchbar else 'border-top-0' }}">
+        <nav t-attf-class="navbar navbar-light navbar-expand-lg border py-0 mb-2 o_portal_navbar {{classes if classes else ''}}">
             <!--  Navbar breadcrumb or title  -->
             <t t-if="breadcrumbs_searchbar">
                 <t t-call="portal.portal_breadcrumbs"/>
@@ -296,8 +296,10 @@
                     </div>
                     <t t-raw="0"/>
                 </div>
-                <form t-if="searchbar_inputs" class="form-inline o_portal_search_panel ml-lg-4 col-xl-4 col-md-5">
-                    <div class="input-group input-group-sm w-100">
+                <form t-if="searchbar_inputs" class="form-inline o_portal_search_panel ml-lg-4 col-xl-4 col-md-5 mt-2 mb-2 p-0">
+                    <!-- <div class="input-group input-group-sm w-100"> -->
+                    <!-- Savrasov Увеличил шруппу -->
+                    <div class="input-group w-100">
                         <div class="input-group-prepend">
                             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"/>
                             <div class="dropdown-menu" role="menu">
@@ -309,9 +311,9 @@
                                 </t>
                             </div>
                         </div>
-                        <input type="text" class="form-control form-control-sm" placeholder="Search" t-att-value='search' name="search"/>
+                        <input type="text" class="form-control" placeholder="Search" t-att-value='search' name="search"/>
                         <span class="input-group-append">
-                            <button class="btn btn-secondary search-submit" type="button">
+                            <button class="btn border border-left-0 oe_search_button" type="button">
                                 <span class="fa fa-search"/>
                             </button>
                         </span>

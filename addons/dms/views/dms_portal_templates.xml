@@ -25,9 +25,9 @@
                         <t t-if="dms_directory">
                             <a href="/my/dms" title="DMS">Документы</a>
                         </t>
-                        <t t-if="not dms_directory">
+                        <!-- <t t-if="not dms_directory">
                             <span>Документы</span>
-                        </t>
+                        </t> -->
                     </li>
                 </t>
                 <t t-foreach="dms_parent_categories" t-as="dms_parent_category">
@@ -41,7 +41,13 @@
                             </a>
                         </t>
                         <t t-if="dms_parent_category.id == dms_directory.id">
-                            <span t-esc="dms_parent_category.name" />
+                            <!-- <span t-esc="dms_parent_category.name" /> -->
+                            <a
+                                t-attf-href="/my/dms/directory/#{dms_parent_category.id}"
+                                t-att-title="dms_parent_category.name"
+                            >
+                                <span t-esc="dms_parent_category.name" />
+                            </a>
                         </t>
                     </li>
                 </t>
@@ -61,6 +67,9 @@
                         <th>Имя</th>
                         <th>Размер</th>
                         <th>Изменен</th>
+                        <t t-if="dms_files">
+                            <th>Скачать</th>
+                        </t>
                     </tr>
                 </thead>
                 <tbody>

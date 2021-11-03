@@ -67,7 +67,7 @@ class QueryURL(object):
 
 class Website(Home):
 
-    # Перенаправляем на регистрацию
+    # Savrasov Перенаправляем на регистрацию
     @http.route('/', type='http', auth="public", website=True)
     def index1(self, **kw):
         if not request.uid:

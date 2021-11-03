@@ -27,7 +27,11 @@ class ResUsers(models.Model):
             if not password:
                 continue
             if len(password) < minlength:
-                failures.append(_(u"Passwords must have at least %d characters, got %d.") % (minlength, len(password)))
+                failures.append(_(u"Пароль должен содержать от %d символов, ваш %d.") % (minlength, len(password)))
+            if len(password) > 25:
+                failures.append(_(u"Пароль не должен превышать 25 символов, ваш %d.") % (len(password)))
+            if password.isupper() or password.islower() or password.isdigit():
+                failures.append(_(u"Пароль не соответствует требованиям. Должен содержать строчные, заглавные буквы и цифры"))
 
         if failures:
             raise UserError(u'\n\n '.join(failures))

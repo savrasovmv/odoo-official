@@ -76,7 +76,11 @@
                     <img t-att-src="avatar_source" t-attf-class="rounded-circle #{_avatar_class}" width="24" height="24" alt="" loading="eager"/>
                 </t>
                 <i t-if="_icon" t-attf-class="fa fa-1x fa-fw fa-user-circle-o #{_icon_class}"/>
-                <span t-if="_user_name" t-attf-class="#{_user_name_class}" t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+
+                <!-- Savrasov Изменяем в верхнем меню с полного ФИО на Фамилия И. -->
+                <t t-set="name_fio" t-value="user_id.name.split(' ') if user_id.name else ''"/>
+                <span t-if="_user_name" t-attf-class="#{_user_name_class}" t-esc="name_fio[0] + ' ' + name_fio[1][:1] + '.' if user_id.name and len(name_fio) &gt; 1 else user_id.name"/>
+                <!-- <span t-if="_user_name" t-attf-class="#{_user_name_class}" t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/> -->
             </a>
             <div t-attf-class="dropdown-menu js_usermenu #{_dropdown_menu_class}" role="menu">
                 <div id="o_logout_divider" class="dropdown-divider"/>
@@ -522,7 +526,8 @@
 
     <template id="my_account_link" name="Link to frontend portal" inherit_id="portal.user_dropdown">
         <xpath expr="//*[@id='o_logout_divider']" position="before">
-            <a href="/my/home" role="menuitem" class="dropdown-item">My Account</a>
+        <!-- Savrasov удалил пункт меню Моя учетная запись -->
+            <!-- <a href="/my/home" role="menuitem" class="dropdown-item">My Account</a> -->
         </xpath>
     </template>
 

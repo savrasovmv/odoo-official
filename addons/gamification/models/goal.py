@@ -209,6 +209,10 @@ class Goal(models.Model):
 
         :return: data to write on the goal object
         """
+        # Savrasov отключаем уведомления почты
+        return {}
+
+        
         if not (self.remind_update_delay and self.last_update):
             return {}
 

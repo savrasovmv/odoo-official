@@ -180,11 +180,12 @@ WHERE sub.user_id IN %%s""" % {
         """
             Method that can be called on a batch of users with the same new rank
         """
+        # Savrasov отключаем сообщения почты
         template = self.env.ref('gamification.mail_template_data_new_rank_reached', raise_if_not_found=False)
-        if template:
-            for u in self:
-                if u.rank_id.karma_min > 0:
-                    template.send_mail(u.id, force_send=False, notif_layout='mail.mail_notification_light')
+        # if template:
+        #     for u in self:
+        #         if u.rank_id.karma_min > 0:
+        #             template.send_mail(u.id, force_send=False, notif_layout='mail.mail_notification_light')
 
     def _recompute_rank(self):
         """

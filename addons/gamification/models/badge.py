@@ -34,6 +34,10 @@ class BadgeUser(models.Model):
         The stats counters are incremented
         :param ids: list(int) of badge users that will receive the badge
         """
+        
+        #Savrasov отключаем отправку писем
+        return True
+
         template = self.env.ref('gamification.email_template_badge_received')
 
         for badge_user in self:

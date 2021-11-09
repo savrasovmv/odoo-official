@@ -547,6 +547,10 @@ class Challenge(models.Model):
                       a visibility mode set to 'personal'.
         :param subset_goals: goals to restrict the report
         """
+        # Savrasov отключаем уведомления почты 
+        return self.write({'last_report_date': fields.Date.today()})
+
+
 
         challenge = self
 

@@ -311,21 +311,21 @@
             <span class="mx-1 d-none d-sm-inline">&amp;nbsp;|</span>
             <a t-if="question.child_count" class="font-weight-bold" t-attf-href="/forum/#{ slug(question.forum_id) }/#{ slug(question) }">
                 <t t-esc="question.child_count"/>
-                <t t-if="question.child_count == 1">Answer</t>
-                <t t-else="">Answers</t>
+                <t t-if="question.child_count == 1">Ответ</t>
+                <t t-else="">Ответов</t>
             </a>
             <span t-else="">
-                0 Answers
+                0 Ответов
             </span>
             <span class="d-none d-sm-inline">
                 <span class="mx-1">|</span>
-                <span t-field="question.views" /> <t t-if="question.views&lt;=1">View</t><t t-else="">Views</t>
+                <span t-field="question.views" /> <t t-if="question.views&lt;=1">Просмотр</t><t t-else="">Просмотра</t>
                 <span t-if="question.favourite_count &gt; 0">
                     <span class="mx-1">|</span>
                     <i class="fa fa-star"/>
                     <t t-esc="question.favourite_count"/>
                 </span></span>
-            <span t-if="question.state == 'flagged'" class="text-black"> | Flagged</span>
+            <span t-if="question.state == 'flagged'" class="text-black"> | Отмечено</span>
         </div>
     </div>
     <!--  Display post's content in moderation mode-->
@@ -682,8 +682,8 @@
                     </span>
                 </div>
                 <div t-if="uid and request.env.user.forum_waiting_posts_count"
-                    title="You already have a pending post"
-                    data-toggle="popover" data-trigger="hover" data-content="Please wait for a moderator to validate your previous post before continuing.">
+                    title="У вас уже есть ожидающая публикация"
+                    data-toggle="popover" data-trigger="hover" data-content="Подождите, пока модератор подтвердит ваше предыдущее сообщение, прежде чем продолжить.">
                     <a class="disabled btn btn-secondary btn-block mb-3 mb-md-0" t-attf-href="/forum/#{slug(forum)}/ask">New Post</a>
                 </div>
                 <a t-else="" role="button" type="button" class="btn btn-primary btn-block o_forum_ask_btn mb-3 mb-md-0" t-att-href="uid and '/forum/' + slug(forum) + '/ask' or '/web/login'">New Post</a>
@@ -1183,7 +1183,7 @@
                             data-toggle="collapse"
                             data-target=".answer_collapse"
                             href="#">
-                            <i class="fa fa-reply mr-1"/>Answer
+                            <i class="fa fa-reply mr-1"/>Ответить
                         </a>
                     </div>
                     <div class="btn-group btn-group-sm">

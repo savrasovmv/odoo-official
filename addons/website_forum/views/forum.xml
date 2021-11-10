@@ -96,6 +96,8 @@
                                         <div groups="base.group_no_one" class="o_row" attrs="{'invisible':[('default_order','!=','relevancy desc')]}">
                                             (votes - 1) ** <field name="relevancy_post_vote"/> / (days + 2) ** <field name="relevancy_time_decay"/>
                                         </div>
+                                        <field name="is_auto_validation"/>
+                                        
                                     </group>
                                 </group>
                                 <group>

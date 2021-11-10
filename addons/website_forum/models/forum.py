@@ -126,6 +126,9 @@ class Forum(models.Model):
     karma_post = fields.Integer(string='Ask questions without validation', default=100)
     karma_moderate = fields.Integer(string='Moderate posts', default=1000)
 
+    # Savrasov валидация всех постов без модератора
+    is_auto_validation = fields.Boolean(string='Автоматическая валидация', default=True, help="Разрешает автоматическую валидацию постов, без участия модератора форума")
+
     @api.depends('post_ids')
     def _compute_last_post(self):
         for forum in self:
@@ -652,12 +655,26 @@ class Post(models.Model):
 
     def validate(self):
         for post in self:
-            if not post.can_moderate:
-                raise AccessError(_('%d karma required to validate a post.', post.forum_id.karma_moderate))
+            # if not post.can_moderate:
+            #     raise AccessError(_('%d karma required to validate a post.', post.forum_id.karma_moderate))
             # if state == pending, no karma previously added for the new question
             if post.state == 'pending':
                 post.create_uid.sudo().add_karma(post.forum_id.karma_gen_question_new)
-            post.write({
+            post.sudo().write({
+                'state': 'active',
+                'active': True,
+                'moderator_id': self.env.user.id,
+            })
+            post.post_notification()
+        return True
+
+    # Savrasov валидация всех постов без модератора
+    def validate_allusers(self):
+        """Валидация всех постов без модератора"""
+        for post in self:
+            if post.state == 'pending':
+                post.create_uid.sudo().add_karma(post.forum_id.karma_gen_question_new)
+            post.sudo().write({
                 'state': 'active',
                 'active': True,
                 'moderator_id': self.env.user.id,

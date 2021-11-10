@@ -1,3 +1,4 @@
+*.pyc
 addons/link_tracker/__pycache__/__init__.cpython-36.pyc
 addons/link_tracker/controller/__pycache__/__init__.cpython-36.pyc
 addons/link_tracker/controller/__pycache__/main.cpython-36.pyc
@@ -61,8 +62,9 @@ addons/website_event/controllers/__pycache__/main.cpython-36.pyc
 addons/website_form/controllers/__pycache__/main.cpython-36.pyc
 addons/website_slides/controllers/__pycache__/main.cpython-36.pyc
 addons/dms/controllers/__pycache__/portal.cpython-36.pyc
-*.pyc
 addons/website_event/controllers/__pycache__/main.cpython-36.pyc
 addons/website_form/controllers/__pycache__/main.cpython-36.pyc
 addons/website_slides/controllers/__pycache__/main.cpython-36.pyc
 addons/dms/controllers/__pycache__/portal.cpython-36.pyc
+addons/gamification/models/__pycache__/badge.cpython-36.pyc
+addons/gamification/models/__pycache__/challenge.cpython-36.pyc

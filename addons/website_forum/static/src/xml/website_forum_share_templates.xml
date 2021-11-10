@@ -42,15 +42,12 @@
         </t>
     </t>
     <t t-name="website_forum.social_message_question">
-        <p>On average, <b>45% of questions shared</b> on social networks get an answer within
-        5 hours. Questions shared on two social networks have <b>65% more chance to get an
-        answer</b> !</p>
-        <p t-if="state == 'pending'">You can share your question once it has been validated</p>
+        <p>Благодаря публикации вопросов и ответом, повышается уровень базы знаний!</p>
+        <p t-if="state == 'pending'">Ваш вопрос будет опубликован после подтверждения модератором</p>
     </t>
     <t t-name="website_forum.social_message_answer">
-        <p>By sharing you answer, you will get additional <b>karma points</b> if your
-        answer is selected as the right one. See what you can do with karma
-        <a href="/forum/help-1/faq" target="_blank">here</a>.</p>
+        <p>Поделившись своим ответом, вы получите дополнительные <b> баллы кармы </b>, если ваш
+         ответ выбран как правильный. Пока баллы используются в тестовом режиме.</p>
     </t>
     <t t-name="website_forum.social_message_default">
         <p>Share this content to increase your chances to be featured on the front page and attract more visitors.</p>

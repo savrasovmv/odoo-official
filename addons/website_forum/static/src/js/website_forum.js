@@ -254,14 +254,14 @@ publicWidget.registry.websiteForum = publicWidget.Widget.extend({
             return;
         }
         ev.preventDefault();
-        var msg = karma + ' ' + _t("karma is required to perform this action. ");
-        var title = _t("Karma Error");
+        var msg = karma + ' ' + _t("карма необходима для выполнения этого действия. ");
+        var title = _t("Карма Ошибка");
         if (forum_id) {
-            msg += '<a class="alert-link" href="/forum/' + forum_id + '/faq">' + _t("Read the guidelines to know how to gain karma.") + '</a>';
+            msg += '<a class="alert-link" href="/forum/' + forum_id + '/faq">' + _t("Прочтите руководство, чтобы узнать, как обрести карму.") + '</a>';
         }
         if (session.is_website_user) {
-            msg = _t("Sorry you must be logged in to perform this action");
-            title = _t("Access Denied");
+            msg = _t("Извините, вы должны войти в систему, чтобы выполнить это действие");
+            title = _t("В доступе отказано");
         }
         this.call('crash_manager', 'show_warning', {
             message: msg,
@@ -319,27 +319,27 @@ publicWidget.registry.websiteForum = publicWidget.Widget.extend({
             if (data.error) {
                 var message;
                 if (data.error === 'anonymous_user') {
-                    message = _t("Sorry you must be logged to flag a post");
+                    message = _t("Извините, вы должны войти, чтобы пометить сообщение");
                 } else if (data.error === 'post_already_flagged') {
-                    message = _t("This post is already flagged");
+                    message = _t("Этот пост уже отмечен");
                 } else if (data.error === 'post_non_flaggable') {
-                    message = _t("This post can not be flagged");
+                    message = _t("Это сообщение нельзя пометить");
                 }
                 self.call('crash_manager', 'show_warning', {
                     message: message,
-                    title: _t("Access Denied"),
+                    title: _t("В доступе отказано"),
                 }, {
                     sticky: false,
                 });
             } else if (data.success) {
                 var elem = $link;
                 if (data.success === 'post_flagged_moderator') {
-                    elem.data('href') && elem.html(' Flagged');
+                    elem.data('href') && elem.html(' Отмечено');
                     var c = parseInt($('#count_flagged_posts').html(), 10);
                     c++;
                     $('#count_flagged_posts').html(c);
                 } else if (data.success === 'post_flagged_non_moderator') {
-                    elem.data('href') && elem.html(' Flagged');
+                    elem.data('href') && elem.html(' Отмечено');
                     var forumAnswer = elem.closest('.forum_answer');
                     forumAnswer.fadeIn(1000);
                     forumAnswer.slideUp(1000);
@@ -361,13 +361,13 @@ publicWidget.registry.websiteForum = publicWidget.Widget.extend({
             if (data.error) {
                 var message;
                 if (data.error === 'own_post') {
-                    message = _t('Sorry, you cannot vote for your own posts');
+                    message = _t('Извините, вы не можете голосовать за свои сообщения');
                 } else if (data.error === 'anonymous_user') {
-                    message = _t('Sorry you must be logged to vote');
+                    message = _t('Извините, вы должны войти, чтобы проголосовать');
                 }
                 self.call('crash_manager', 'show_warning', {
                     message: message,
-                    title: _t("Access Denied"),
+                    title: _t("В доступе отказано"),
                 }, {
                     sticky: false,
                 });
@@ -442,7 +442,7 @@ publicWidget.registry.websiteForum = publicWidget.Widget.extend({
         }).then(data => {
             if (data.error) {
                 if (data.error === 'anonymous_user') {
-                    var message = _t("Sorry, anonymous users cannot choose correct answer.");
+                    var message = _t("Извините, анонимные пользователи не могут выбрать правильный ответ.");
                 }
                 this.call('crash_manager', 'show_warning', {
                     message: message,

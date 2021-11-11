@@ -483,12 +483,12 @@ msgstr "<i class=\"fa fa-flag\"/> Страна"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_answers
-#msgid ""
-#"<i class=\"fa fa-pencil\"/>\n"
-#"                                Edit<span class=\"d-none d-lg-inline\"> your answer</span>"
-#msgstr ""
-#"<i class=\"fa fa-pencil\"/>\n"
-#"                                Изменить<span class=\"d-none d-lg-inline\"> Ваш ответ</span>"
+msgid ""
+"<i class=\"fa fa-pencil\"/>\n"
+"                                Edit<span class=\"d-none d-lg-inline\"> your answer</span>"
+msgstr ""
+"<i class=\"fa fa-pencil\"/>\n"
+"                                Изменить<span class=\"d-none d-lg-inline\"> Ваш ответ</span>"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar

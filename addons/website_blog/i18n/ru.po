@@ -50,12 +50,12 @@ msgstr "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
 msgid "' page header."
-msgstr ""
+msgstr "' заголовок страницы."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.date_selector
 msgid "-- All dates"
-msgstr ""
+msgstr "-- Все даты"
 
 #. module: website_blog
 #: model_terms:blog.post,content:website_blog.blog_post_6
@@ -176,7 +176,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_tags_display
 msgid "<em>No tags defined</em>"
-msgstr ""
+msgstr "<em>Теги не определены</em>"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_complete
@@ -184,13 +184,15 @@ msgid ""
 "<i class=\"fa fa-angle-down fa-3x text-white\" aria-label=\"To blog "
 "content\" title=\"To blog content\"/>"
 msgstr ""
+"<i class=\"fa fa-angle-down fa-3x text-white\" aria-label=\"К содержанию "
+"блога\" title=\"К содержанию блога\"/>"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_view_kanban
 msgid "<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Post date\" title=\"Post date\"/>"
 msgstr ""
-"<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Post date\" "
-"title=\"Post date\"/>"
+"<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Дата публикации\" "
+"title=\"Дата публикации\"/>"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_sidebar_blog_index_follow_us
@@ -236,6 +238,8 @@ msgid ""
 "<span class=\"bg-o-color-3 h6 d-inline-block py-1 px-2 rounded-sm\">Read "
 "Next</span>"
 msgstr ""
+"<span class=\"bg-o-color-3 h6 d-inline-block py-1 px-2 rounded-sm\">Читать "
+"Следующий</span>"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_read_next
@@ -244,16 +248,19 @@ msgid ""
 "                                    <i class=\"fa fa-angle-right fa-3x text-white\" aria-label=\"Read next\" title=\"Read Next\"/>\n"
 "                                </span>"
 msgstr ""
+"<span class=\"h4 d-inline-block py-1 px-2 rounded-sm text-white\">\n"
+"                                    <i class=\"fa fa-angle-right fa-3x text-white\" aria-label=\"Читать следующий\" title=\"Читать следующий\"/>\n"
+"                                </span>"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
 msgid "<span class=\"mr-1\">Show:</span>"
-msgstr ""
+msgstr "<span class=\"mr-1\">Показать:</span>"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blogs_nav
 msgid "<span class=\"nav-link disabled pl-0\">Blogs:</span>"
-msgstr ""
+msgstr "<span class=\"nav-link disabled pl-0\">Блоги:</span>"
 
 #. module: website_blog
 #: model:blog.post,subtitle:website_blog.blog_post_2
@@ -318,7 +325,7 @@ msgstr "Активно"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_tags_display
 msgid "Add some"
-msgstr ""
+msgstr "Добавь другие"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blogs_nav
@@ -550,7 +557,7 @@ msgstr "У поста <b>%s</b>, похоже, есть ссылка на эту
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_complete
 msgid "Blog Post Cover"
-msgstr ""
+msgstr "Обложка публикации в блоге"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_complete
@@ -601,7 +608,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_cover_post
 msgid "Blog's Title"
-msgstr ""
+msgstr "Название блога"
 
 #. module: website_blog
 #: model:ir.actions.act_window,name:website_blog.action_blog_blog
@@ -644,7 +651,7 @@ msgstr "Может публиковать"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.s_latest_posts_options
 msgid "Cards"
-msgstr ""
+msgstr "Карты"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_tag__category_id
@@ -659,7 +666,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.s_latest_posts_options
 msgid "Choose a blog"
-msgstr "выбрать блог"
+msgstr "Выбрать блог"
 
 #. module: website_blog
 #. openerp-web
@@ -673,14 +680,14 @@ msgstr "Выберите изображение из библиотеки."
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Click here to add new content to your website."
-msgstr ""
+msgstr "Щелкните здесь, чтобы добавить новый контент на свой сайт."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
 msgid ""
 "Click on \"<b>New</b>\" in the top-right corner to write your first blog "
 "post."
-msgstr ""
+msgstr "Нажмите \"<b>Новый</b>\" в правом верхнем углу, чтобы написать свой первый пост в блоге."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
@@ -798,7 +805,7 @@ msgstr "Редактировать в бэкенде"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
 msgid "Edit the '"
-msgstr ""
+msgstr "Отредактируйте '"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
@@ -813,7 +820,7 @@ msgstr "Отредактируйте заголовок страницы 'Рез
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.snippet_options
 msgid "Existing"
-msgstr ""
+msgstr "Существующий"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_share_links_display
@@ -839,7 +846,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_sidebar_blog_index_follow_us
 msgid "Follow Us"
-msgstr ""
+msgstr "Подписывайтесь на нас"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_follower_ids
@@ -1110,7 +1117,7 @@ msgstr "Последнее обновление"
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_cover_post_fullwidth_design
 #: model_terms:ir.ui.view,arch_db:website_blog.s_latest_posts_options
 msgid "Latest"
-msgstr ""
+msgstr "Последний"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.s_latest_posts_options
@@ -1222,17 +1229,17 @@ msgstr "Сообщения"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_form
 msgid "Meta Description"
-msgstr ""
+msgstr "Мета Описание"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_form
 msgid "Meta Keywords"
-msgstr ""
+msgstr "Мета Ключевые слова"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_form
 msgid "Meta Title"
-msgstr ""
+msgstr "Мета-заголовок"
 
 #. module: website_blog
 #: model_terms:blog.post,content:website_blog.blog_post_2
@@ -1260,7 +1267,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.s_latest_posts_options
 msgid "Most viewed"
-msgstr ""
+msgstr "Часто просматриваемые"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_tag__name
@@ -1279,7 +1286,7 @@ msgstr "Новая публикация в блоге"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.snippet_options
 msgid "New tag"
-msgstr ""
+msgstr "Новый тег"
 
 #. module: website_blog
 #. openerp-web
@@ -1303,12 +1310,12 @@ msgstr "Nº просмотров"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
 msgid "No results for \"%s\"."
-msgstr ""
+msgstr "Нет результатов по запросу \"%s\"."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_sidebar_blog_index_tags
 msgid "No tags defined yet."
-msgstr ""
+msgstr "Теги еще не определены."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.s_latest_posts_options
@@ -1391,7 +1398,7 @@ msgstr "Другие"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_blogs_display
 msgid "Our blogs"
-msgstr ""
+msgstr "Наши блоги"
 
 #. module: website_blog
 #: model_terms:blog.post,content:website_blog.blog_post_2
@@ -1458,7 +1465,7 @@ msgstr "Посты"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
 msgid "Published ("
-msgstr ""
+msgstr "Опубликовано ("
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__published_date
@@ -1489,7 +1496,7 @@ msgstr "Читать больше"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
 msgid "Read more <i class=\"fa fa-chevron-right ml-2\"/>"
-msgstr ""
+msgstr "Подробнее <i class=\"fa fa-chevron-right ml-2\"/>"
 
 #. module: website_blog
 #: model_terms:blog.post,content:website_blog.blog_post_3
@@ -1530,7 +1537,7 @@ msgstr "Сохранить"
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Search for an image. (eg: type \"business\")"
-msgstr ""
+msgstr "Найдите изображение. (например: введите \"бизнес\")"
 
 #. module: website_blog
 #. openerp-web
@@ -1544,7 +1551,7 @@ msgstr "выбрать блог"
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Select the blog you want to add the post to."
-msgstr ""
+msgstr "Выберите блог, в который хотите добавить запись."
 
 #. module: website_blog
 #. openerp-web
@@ -1563,7 +1570,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_form
 msgid "Separate every keyword with a comma"
-msgstr ""
+msgstr "Разделите каждое ключевое слово запятой"
 
 #. module: website_blog
 #. openerp-web
@@ -1598,7 +1605,7 @@ msgstr "Поделиться на Twitter"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_share_links_display
 msgid "Share this post"
-msgstr ""
+msgstr "Поделиться этим постом"
 
 #. module: website_blog
 #: model:blog.post,name:website_blog.blog_post_1
@@ -1904,21 +1911,21 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
 msgid "This box will not be visible to your visitors"
-msgstr ""
+msgstr "Это поле не будет видно вашим посетителям."
 
 #. module: website_blog
 #. openerp-web
 #: code:addons/website_blog/static/src/js/website_blog.editor.js:0
 #, python-format
 msgid "This tag already exists"
-msgstr ""
+msgstr "Этот тег уже существует"
 
 #. module: website_blog
 #. openerp-web
 #: code:addons/website_blog/static/src/js/website_blog.editor.js:0
 #, python-format
 msgid "Tiny"
-msgstr ""
+msgstr "Крошечный"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__name
@@ -1989,7 +1996,7 @@ msgstr "Твиттер"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
 msgid "Unpublished ("
-msgstr ""
+msgstr "Не опубликовано ("
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_unread
@@ -2112,7 +2119,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.sidebar_blog_index
 msgid "Write a small text here to describe your blog or company."
-msgstr ""
+msgstr "Напишите здесь небольшой текст, чтобы описать свой блог или компанию."
 
 #. module: website_blog
 #. openerp-web
@@ -2170,7 +2177,7 @@ msgstr "по"
 #. module: website_blog
 #: model:blog.tag,name:website_blog.blog_tag_5
 msgid "discovery"
-msgstr ""
+msgstr "открытие"
 
 #. module: website_blog
 #: model:blog.tag,name:website_blog.blog_tag_3
@@ -2195,12 +2202,12 @@ msgstr "в"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_cover_post
 msgid "in <i class=\"fa fa-folder-open text-muted\"/>"
-msgstr ""
+msgstr "в <i class=\"fa fa-folder-open text-muted\"/>"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_cover_post_fullwidth_design
 msgid "in <i class=\"fa fa-folder-open text-white-75\"/>"
-msgstr ""
+msgstr "в <i class=\"fa fa-folder-open text-white-75\"/>"
 
 #. module: website_blog
 #: model:blog.tag,name:website_blog.blog_tag_4
@@ -2210,7 +2217,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_comment
 msgid "to leave a comment"
-msgstr ""
+msgstr "оставить комментарий"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
@@ -2220,4 +2227,10 @@ msgstr "неопубликовано"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_regular_cover
 msgid "| No comments yet"
-msgstr ""
+msgstr "| Пока без коментариев"
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
+msgid ""
+"Click on \"New Page\" in the top-right corner to write your first blog post."
+msgstr "Нажмите \"Новая страница\" в правом верхнем углу, чтобы написать свое первое сообщение в блоге."

@@ -353,7 +353,7 @@ class WebsiteForum(WebsiteProfile):
         })
         # Savrasov валидация всех постов без модератора
         if forum.is_auto_validation:
-            new_question.validate_allusers()
+            new_question.sudo().validate_allusers()
             
         return werkzeug.utils.redirect("/forum/%s/%s" % (slug(forum), post_parent and slug(post_parent) or new_question.id))
 

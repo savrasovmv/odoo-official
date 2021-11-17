@@ -679,7 +679,7 @@ class Post(models.Model):
                 'active': True,
                 'moderator_id': self.env.user.id,
             })
-            post.post_notification()
+            # post.post_notification()
         return True
 
     def refuse(self):

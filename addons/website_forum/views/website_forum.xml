@@ -822,11 +822,11 @@
                 </div>
 
                 <t t-if="search">
-                    <h4>Search Tips</h4>
+                    <h4>Советы по поиску</h4>
                     <ul>
-                        <li>Check your spelling and try again</li>
-                        <li>Try searching for one or two words</li>
-                        <li>Be less specific in your wording for a wider search result</li>
+                        <li>Проверьте правильность написания и повторите попытку</li>
+                        <li>Попробуйте поискать одно или два слова</li>
+                        <li>Будьте менее конкретны в своих формулировках, чтобы получить более широкий результат поиска.</li>
                     </ul>
                 </t>
             </div>
@@ -839,10 +839,10 @@
 <template id="404">
     <t t-call="website_forum.header">
         <div class="oe_structure oe_empty"/>
-        <h1 class="mt-4">Question not found!</h1>
-        <p>Sorry, this question is not available anymore.</p>
+        <h1 class="mt-4">Вопрос не найден!</h1>
+        <p>Извините, этот вопрос больше не доступен.</p>
         <p>
-            <a t-attf-href="/forum">Return to the question list.</a>
+            <a t-attf-href="/forum">Вернуться к списку вопросов.</a>
         </p>
     </t>
 </template>

@@ -242,7 +242,7 @@ msgstr ""
 #: code:addons/project/static/src/js/tours/project.js:0
 #, python-format
 msgid "<b>Drag &amp; drop</b> the card to change your task from stage."
-msgstr ""
+msgstr "<b> Перетащите &amp; </b> карточку, чтобы сменить этап задачи."
 
 #. module: project
 #. openerp-web
@@ -253,6 +253,9 @@ msgid ""
 "    of the note you are logging unless you specifically tag them)</i>. Use @ <b>mentions</b> to ping a colleague \n"
 "    or # <b>mentions</b> to reach an entire team."
 msgstr ""
+"<b> Журнал заметок </b> для внутреннего общения <i> (люди, выполняющие эту задачу, не будут уведомлены \ n "
+"   о заметке, которую вы регистрируете, если вы специально не отметили их) </i>. Используйте @ <b>упоминания</b>, чтобы пинговать коллегу \ n"
+"или # <b>упоминание</b>, чтобы охватить всю команду."
 
 #. module: project
 #: model:mail.template,body_html:project.rating_project_request_email_template
@@ -598,7 +601,7 @@ msgstr "Все"
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__privacy_visibility__employees
 msgid "All internal users"
-msgstr ""
+msgstr "Все внутренние пользователи"
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__recurrence_update__all
@@ -613,17 +616,17 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__allowed_internal_user_ids
 msgid "Allowed Internal Users"
-msgstr ""
+msgstr "Разрешенные внутренние пользователи"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__allowed_portal_user_ids
 msgid "Allowed Portal Users"
-msgstr ""
+msgstr "Разрешенные пользователи портала"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__allowed_user_ids
 msgid "Allowed User"
-msgstr ""
+msgstr "Разрешенный пользователь"
 
 #. module: project
 #: model:ir.model,name:project.model_account_analytic_account
@@ -999,12 +1002,12 @@ msgstr "Создайте новый этап в конвейере задач"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
 msgid "Create tasks by sending an email"
-msgstr ""
+msgstr "Создавайте задачи, отправив электронное письмо"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_project_view_form_simplified
 msgid "Create tasks by sending an email to"
-msgstr ""
+msgstr "Создавайте задачи, отправив электронное письмо на"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__create_date
@@ -1819,12 +1822,12 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__privacy_visibility__followers
 msgid "Invited internal users"
-msgstr ""
+msgstr "Приглашенные внутренние пользователи"
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__privacy_visibility__portal
 msgid "Invited portal users and all internal users"
-msgstr ""
+msgstr "Приглашенные пользователи портала и все внутренние пользователи"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__message_is_follower
@@ -2168,7 +2171,7 @@ msgstr "Название"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
 msgid "Name of the tasks:"
-msgstr ""
+msgstr "Название задач:"
 
 #. module: project
 #: model:project.task,legend_blocked:project.project_task_10
@@ -2653,7 +2656,7 @@ msgstr "Задачи проекта"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__project_privacy_visibility
 msgid "Project Visibility"
-msgstr ""
+msgstr "Видимость проекта"
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__subtask_project_id
@@ -3878,7 +3881,7 @@ msgstr "Видимость"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__allowed_user_ids
 msgid "Visible to"
-msgstr ""
+msgstr "Видим для"
 
 #. module: project
 #. openerp-web

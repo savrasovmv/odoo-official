@@ -1002,12 +1002,12 @@ msgstr "Создайте новый этап в конвейере задач"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
 msgid "Create tasks by sending an email"
-msgstr "Создавайте задачи, отправив электронное письмо"
+msgstr "Создавать задачи, из письм "
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_project_view_form_simplified
 msgid "Create tasks by sending an email to"
-msgstr "Создавайте задачи, отправив электронное письмо на"
+msgstr "Создавать задачи, из письм "
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__create_date

@@ -71,7 +71,7 @@ class AuthSignupHome(Home):
                     self.do_signup(qcontext)
                     return self.web_login(*args, **kw)
                 else:
-                    login = qcontext.get('login')
+                    login = qcontext.get('login').lower()
                     assert login, _("No login provided.")
                     _logger.info(
                         "Password reset attempt for <%s> by user <%s> from %s",

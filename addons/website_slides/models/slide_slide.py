@@ -341,14 +341,20 @@ class Slide(models.Model):
                 slide_url = base_url + url_for('/slides/embed/%s?page=1' % record.id)
                 record.embed_code = '<iframe src="%s" class="o_wslides_iframe_viewer" allowFullScreen="true" height="%s" width="%s" frameborder="0"></iframe>' % (slide_url, 315, 420)
             elif record.slide_type == 'video' and record.document_id:
-                if not record.mime_type:
-                    # embed youtube video
-                    query = urls.url_parse(record.url).query
-                    query = query + '&theme=light' if query else 'theme=light'
-                    record.embed_code = '<iframe src="//www.youtube-nocookie.com/embed/%s?%s" allowFullScreen="true" frameborder="0"></iframe>' % (record.document_id, query)
+                # savrasov Добавлена поддержк источника NAS
+                url_obj = urls.url_parse(record.url)
+                if url_obj.ascii_host == 'drive.tmenergo.ru':
+                    record.embed_code = '<iframe src="%s" allowFullScreen="true" frameborder="0"></iframe>' % (record.url)
                 else:
-                    # embed google doc video
-                    record.embed_code = '<iframe src="//drive.google.com/file/d/%s/preview" allowFullScreen="true" frameborder="0"></iframe>' % (record.document_id)
+
+                    if not record.mime_type:
+                        # embed youtube video
+                        query = urls.url_parse(record.url).query
+                        query = query + '&theme=light' if query else 'theme=light'
+                        record.embed_code = '<iframe src="//www.youtube-nocookie.com/embed/%s?%s" allowFullScreen="true" frameborder="0"></iframe>' % (record.document_id, query)
+                    else:
+                        # embed google doc video
+                        record.embed_code = '<iframe src="//drive.google.com/file/d/%s/preview" allowFullScreen="true" frameborder="0"></iframe>' % (record.document_id)
             else:
                 record.embed_code = False
 
@@ -738,6 +744,10 @@ class Slide(models.Model):
 
     def _find_document_data_from_url(self, url):
         url_obj = urls.url_parse(url)
+
+        # savrasov Поддержка NAS
+        if url_obj.ascii_host == 'drive.tmenergo.ru':
+            return ('tmenergo', url_obj.path[1:] if url_obj.path else False)
         if url_obj.ascii_host == 'youtu.be':
             return ('youtube', url_obj.path[1:] if url_obj.path else False)
         elif url_obj.ascii_host in ('youtube.com', 'www.youtube.com', 'm.youtube.com', 'www.youtube-nocookie.com'):
@@ -761,6 +771,14 @@ class Slide(models.Model):
         if document_source and hasattr(self, '_parse_%s_document' % document_source):
             return getattr(self, '_parse_%s_document' % document_source)(document_id, only_preview_fields)
         return {'error': _('Unknown document')}
+
+    # savrasov
+    def _parse_tmenergo_document(self, document_id, only_preview_fields):
+        """ Поддержка показа из NAS """
+
+        values = {'slide_type': 'video', 'document_id': document_id}
+        return {'values': values}
+
 
     def _parse_youtube_document(self, document_id, only_preview_fields):
         """ If we receive a duration (YT video), we use it to determine the slide duration.

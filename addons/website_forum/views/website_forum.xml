@@ -1220,7 +1220,7 @@
                     </t>
                 </section>
 
-                <div t-if="not question.uid_has_answered and question.can_answer and question.child_ids" class="btn-group btn-group-sm mr-2">
+                <div t-if="not question.uid_has_answered or question.forum_id.mode == 'discussions' and question.can_answer and question.child_ids" class="btn-group btn-group-sm mr-2">
                     <a t-attf-class="btn btn-primary answer_collapse show collapsed collapse #{not question.can_answer and 'karma_required text-muted'}"
                         t-att-data-karma="question.forum_id.karma_answer"
                         data-toggle="collapse"

@@ -1177,7 +1177,7 @@
                 <t t-set="_question_comment_collapse_uid" t-value="'comment_%s_%s' % (question._name.replace('.', '_'), question.id)"/>
                 <div t-if="question.state == 'active' and question.active != False"
                     class="btn-toolbar mb-3" role="toolbar">
-                    <div t-if="not question.uid_has_answered and question.can_answer" class="btn-group btn-group-sm mr-2">
+                    <div t-if="(not question.uid_has_answered or question.forum_id.mode == 'discussions') and question.can_answer" class="btn-group btn-group-sm mr-2">
                         <a t-attf-class="btn btn-primary collapsed #{not question.can_answer and 'karma_required text-muted'}"
                             t-att-data-karma="question.forum_id.karma_answer"
                             data-toggle="collapse"
